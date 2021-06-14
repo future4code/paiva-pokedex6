@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "37034530-1262-4cc3-9f0b-27414f7f27b6",
+		"name": "Pokedex",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetPokemonsList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/pokemon/",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemon",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPokemon",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/pokemon/:name",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemon",
+						":name"
+					],
+					"variable": [
+						{
+							"key": "name",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
