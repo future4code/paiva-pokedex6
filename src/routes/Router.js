@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { Home } from "../pages/Home";
-import { Pokedex } from "../pages/Pokedex";
-import { PokemonDetails } from "../pages/PokemonDetails";
-import { Error } from "../pages/Error";
+import Home from "../pages/Home";
+import Pokedex from "../pages/Pokedex";
+import PokemonDetails from "../pages/PokemonDetails";
+import Error from "../pages/Error";
 
 function Router() {
   return (
@@ -14,11 +14,11 @@ function Router() {
           <Home/>
         </Route>
 
-        <Route exact path="">
+        <Route exact path="/pokedex">
           <Pokedex/>
         </Route>
 
-        <Route exact path="">
+        <Route exact path="/details/:id">
           <PokemonDetails/>
         </Route>
 
