@@ -1,29 +1,34 @@
-/* import React from "react";
+import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
 import { Home } from "../pages/Home";
 import { Pokedex } from "../pages/Pokedex";
 import { PokemonDetails } from "../pages/PokemonDetails";
 import { Error } from "../pages/Error";
 
+function Router() {
+  return (
+    <BrowserRouter>
+      <Switch>
 
-const Router = () => {
-    return (
-        <BrowserRouter>
-            <Switch>
+        <Route exact path="/">
+          <Home/>
+        </Route>
 
-                <Route exact path={"/"} > <Home /> </Route>
+        <Route exact path="">
+          <Pokedex/>
+        </Route>
 
-                <Route exact path={""} > <Pokedex /> </Route>
+        <Route exact path="">
+          <PokemonDetails/>
+        </Route>
 
-                <Route exact path={""} > <PokemonDetails /> </Route>
+        <Route>
+          <Error/>
+        </Route>
 
-                <Route> <Error />  </Route>
-
-            </Switch>
-        </BrowserRouter>
-    )
+      </Switch>
+    </BrowserRouter>
+  );
 }
 
-
-export default Router; */
+export default Router;

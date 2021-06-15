@@ -1,12 +1,8 @@
 import React from "react";
-import PokemonDetails from "./pages/PokemonDetails";
+import Router from "./routes/Router";
 
 function App() {
-  return (
-    <div>
-      <PokemonDetails/>
-    </div>
-  );
+  return <Router/>
 }
 
 export default App;
