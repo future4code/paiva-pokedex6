@@ -1,9 +1,10 @@
 import React from "react";
+import PokemonDetails from "./pages/PokemonDetails";
 
 function App() {
   return (
     <div>
-      PokeDex
+      <PokemonDetails/>
     </div>
   );
 }
