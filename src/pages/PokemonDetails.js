@@ -1,10 +1,19 @@
 import React from "react";
-import pokemon from "../pokemon.json";
+import { useParams } from "react-router-dom";
+import PokemonDetails from "../components/PokemonDetail";
+import useGetPokemon from "../hooks/useGetPokemon";
 
-export default function PokemonDetails() {
-  const {
-    name, sprites, stats, types, moves
-  } = pokemon;
+export default function Details() {
+  const { id } = useParams();
+  const { pokemon, loading, error } = useGetPokemon(id);
+  let show;
+
+  if (loading)
+    show = <p>Carregando o Pokémon</p>;
+  else if (error)
+    show = <p>Ocorreu um erro ao mostrar o Pokémon</p>;
+  else
+    show = <PokemonDetails pokemon={pokemon}/>;
 
   return (
     <>
@@ -12,35 +21,13 @@ export default function PokemonDetails() {
         <button>
           voltar
         </button>
-        <h1>{name}</h1>
+        <h1>{pokemon.name || "Detalhes Do Pokémon"}</h1>
         <button>
           Adicionar/Remover
         </button>
       </header>
       <main>
-        <section>
-          <img alt={`${name} frente`} src={sprites.front_default}/>
-          <img alt={`${name} trás`} src={sprites.back_default}/>
-        </section>
-        <section>
-          <h2>Estatísticas</h2>
-          {stats.map((stat) => (
-            <p key={stat.stat.name}>
-              {`${stat.stat.name}: ${stat.base_stat}`}
-            </p>
-          ))}
-        </section>
-        <section>
-          <article>
-            <h2>Tipos</h2>
-            {types.map((type) => <p key={type.slot}>{type.type.name}</p>)}
-          </article>
-
-          <article>
-            <h2>Movimentos</h2>
-            {moves.map(({ move }) => <p key={move.url}>{move.name}</p>)}
-          </article>
-        </section>
+        {show}
       </main>
     </>
   );
