@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import PokeCard from "../../components/PokeCard/PokeCard.js";
-import { Main } from './Styled'
+import { Main, Header } from './Styled'
 
 // const pokemons = [
 //   {
@@ -131,11 +131,10 @@ export default function Home() {
   const getPokemons = () => {
     axios.get("https://pokeapi.co/api/v2/pokemon/")
       .then((res) => {
-        console.log(res.data.results)
         setPokemonsList(res.data.results)
       })
       .catch((err) => {
-        console.log(err)  
+
       })
   }
 
@@ -145,10 +144,10 @@ export default function Home() {
 
   return (
     <>
-      <header>
+      <Header>
         <button>Pokedex</button>
         <p>Lista De Pokemons</p>
-      </header>
+      </Header>
       <Main>
         {pokemonsList && pokemonsList.map((pokemon) => {
           return <PokeCard key={pokemon.name} pokemon={pokemon} />
