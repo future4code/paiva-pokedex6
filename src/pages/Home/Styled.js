@@ -1,5 +1,17 @@
 import styled from "styled-components";
 
+export const Header = styled.div`
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start;
+    background-color:blue;
+    margin-bottom:8px;
+    padding:8px;
+    p{
+        margin:auto;
+    }
+`
+
 export const Main = styled.div`
     height:100%;
     width:100%;
