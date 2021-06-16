@@ -8,7 +8,6 @@ export const GlobalState = (props) => {
 
     const states = { pokemonList, loading, error, pokedex };
     const setters = { setPokedex };
-    console.log(pokedex)
 
     return (
         <GlobalStateContext.Provider value={{ states, setters }}>
