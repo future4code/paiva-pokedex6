@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import PokeCard from "./PokeCard";
 import useGetPokemonList from "../hooks/useGetPokemonList";
 import { GlobalStateContext } from "../global/GlobalStateContext";
-import { GlobalState, useGlobalStates } from "../global/GlobalState";
+import { GlobalState, useGlobalSetters, useGlobalStates } from "../global/GlobalState";
 
 export default function PokemonList() {
 
-  const {  pokemonList, error, loading } = useGlobalStates();
-
+  const { pokemonList, error, loading, pokedex} = useGlobalStates();
+  console.log(pokedex)
 
   if (loading)
     return <p>Carregando A Lista De Pokémons</p>;
@@ -18,6 +18,7 @@ export default function PokemonList() {
   return (
     <>
       {pokemonList
+        .filter((pokemon) => !pokedex.find((pokemonPodex) => pokemonPodex === pokemon))
         .map((pokemon) => <PokeCard key={pokemon.name} pokemon={pokemon}/>)}
     </>
   );

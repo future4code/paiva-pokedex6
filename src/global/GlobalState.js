@@ -3,13 +3,15 @@ import { GlobalStateContext } from './GlobalStateContext'
 import useGetPokemonList from '../hooks/useGetPokemonList'
 
 export const GlobalState = (props) => {
-
+    const [pokedex, setPokedex] = useState([])
     const { pokemonList, loading, error } = useGetPokemonList()
 
-    const states = { pokemonList, loading, error };
+    const states = { pokemonList, loading, error, pokedex };
+    const setters = { setPokedex };
+    console.log(pokedex)
 
     return (
-        <GlobalStateContext.Provider value={{ states }}>
+        <GlobalStateContext.Provider value={{ states, setters }}>
             {props.children}
         </GlobalStateContext.Provider>
     )

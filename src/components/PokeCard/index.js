@@ -3,14 +3,19 @@ import {Card, Info, Buttons } from './Styled'
 import useGetPokemon from '../../hooks/useGetPokemon'
 import { goToDetails } from "../../routes/coodinator";
 import { useHistory, useParams } from "react-router-dom";
+import { useGlobalSetters, useGlobalStates } from "../../global/GlobalState";
 
 
 export default function PokeCard(props) {
   const pathParams = useParams()
   const history = useHistory()
   const { pokemon } = useGetPokemon(props.pokemon.name);
- 
-  
+  const { setPokedex } = useGlobalSetters();
+  const { pokedex } = useGlobalStates()
+
+  function addPokedex() {
+    setPokedex([...pokedex, props.pokemon])
+  }
 
   return (
     <Card>
@@ -21,8 +26,8 @@ export default function PokeCard(props) {
       alt={props.pokemon.name} />
       </Info>
       <Buttons>
-      <button>
-        Adicionar/Remover
+      <button onClick={addPokedex}>
+        Adicionar
       </button>
       <button onClick={()=>goToDetails(history, props.pokemon.name)}>
         Ver Detalhes
