@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Card = styled.div`
     display:flex;
@@ -8,7 +8,7 @@ export const Card = styled.div`
     background-color:gray;
     border:1px solid black;
     border-radius:1rem;
-`
+`;
 
 export const Info = styled.div`
     display:flex;
@@ -16,7 +16,7 @@ export const Info = styled.div`
     align-items:center;
     justify-content:center;
 
-`
+`;
 
 export const Buttons = styled.div`
     display:flex;
@@ -30,4 +30,4 @@ export const Buttons = styled.div`
     }
     
 
-`
+`;

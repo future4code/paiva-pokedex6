@@ -10,7 +10,7 @@ export const Header = styled.div`
     p{
         margin:auto;
     }
-`
+`;
 
 export const Main = styled.div`
     height:100%;
@@ -20,4 +20,4 @@ export const Main = styled.div`
     grid-template-rows:1fr 1fr 1fr;
     grid-row-gap:8px;
     grid-column-gap:8px;
-`
+`;
