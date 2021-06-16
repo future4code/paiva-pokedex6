@@ -3,8 +3,7 @@ import PokeCard from "./PokeCard";
 import { useGlobalStates } from "../global/GlobalState";
 
 export default function PokemonList() {
-
-  const { pokemonList, error, loading} = useGlobalStates();
+  const { pokemonList, error, loading } = useGlobalStates();
 
   if (loading)
     return <p>Carregando A Lista De Pokémons</p>;

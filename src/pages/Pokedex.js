@@ -6,7 +6,7 @@ import { goToHome } from "../routes/coodinator";
 
 export default function Pokedex() {
   const history = useHistory();
-  const {pokedex} = useGlobalStates();
+  const { pokedex } = useGlobalStates();
 
   return (
     <>
