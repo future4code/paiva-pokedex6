@@ -30,7 +30,7 @@ export default function PokeCard(props) {
       <Info>
       <p>{props.pokemon.name}</p>
       <img 
-      src={pokemon.sprites?.front_default}
+      src={pokemon.sprites?.other['official-artwork'].front_default}
       alt={props.pokemon.name} />
       </Info>
       <Buttons>
