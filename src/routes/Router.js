@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Home from "../pages/Home/Home.js";
+import Home from "../pages/Home";
 import Pokedex from "../pages/Pokedex";
 import PokemonDetails from "../pages/PokemonDetails";
 import Error from "../pages/Error";

@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router";
-import PokeCard from "../components/PokeCard/PokeCard.js";
-import { goToHome } from "../routes/coodinator.js";
+import PokeCard from "../components/PokeCard";
+import { goToHome } from "../routes/coodinator";
 
 const pokemons = [
   {
