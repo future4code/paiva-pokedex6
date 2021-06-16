@@ -1,5 +1,7 @@
 import React from "react";
+import { useHistory } from "react-router";
 import PokeCard from "../components/PokeCard/PokeCard.js";
+import { goToHome } from "../routes/coodinator.js";
 
 const pokemons = [
   {
@@ -125,10 +127,12 @@ const pokemons = [
 ];
 
 export default function Pokedex() {
+  const history = useHistory();
+
   return (
     <>
       <header>
-        <button>Lista De Pokemons</button>
+        <button onClick={() => goToHome(history)}>Lista De Pokemons</button>
         <p>Pokedex</p>
       </header>
       <main>

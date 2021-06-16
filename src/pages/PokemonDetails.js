@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import PokemonDetails from "../components/PokemonDetail";
+import { goBack } from "../routes/coodinator";
 
 export default function Details() {
   const { id } = useParams();
   const [ name, setName ] = useState("");
+  const history = useHistory();
 
   return (
     <>
       <header>
-        <button>
-          voltar
-        </button>
+        <button onClick={() => goBack(history)}>voltar</button>
         <h1>{name || "Detalhes Do Pokémon"}</h1>
         <button>
           Adicionar/Remover
