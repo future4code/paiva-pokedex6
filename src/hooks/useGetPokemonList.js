@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getPokemonList } from "../api";
 
 export default function useGetPokemonList() {
@@ -6,18 +6,22 @@ export default function useGetPokemonList() {
   const [ loading, setLoading ] = useState(true);
   const [ error, setError ] = useState("");
 
-  const getPokemonListFromApi = useCallback(async () => {
+  function getPokemonListFromApi() {
     setLoading(true);
-    try {
-      const { data } = await getPokemonList();
-      setPokemonList(data.results);
-    } catch (error) {
-      setError(error.response.data);
-    }
-    setLoading(false);
-  }, []);
 
-  useEffect(() => getPokemonListFromApi(), [ getPokemonListFromApi ]);
+    getPokemonList()
+      .then((response) => {
+        setPokemonList(response.data.results);
+      })
+      .catch((error) => {
+        setError(error.response.data);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }
+
+  useEffect(() => getPokemonListFromApi(), []);
 
   return {
     pokemonList,

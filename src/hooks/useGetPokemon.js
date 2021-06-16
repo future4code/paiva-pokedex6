@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getPokemon } from "../api";
 
 export default function useGetPokemon(pokemonID) {
@@ -6,18 +6,22 @@ export default function useGetPokemon(pokemonID) {
   const [ loading, setLoading ] = useState(true);
   const [ error, setError ] = useState("");
 
-  const getPokemonFromApi = useCallback(async () => {
+  function getPokemonFromApi() {
     setLoading(true);
-    try {
-      const { data } = await getPokemon(pokemonID);
-      setPokemon(data);
-    } catch (error) {
-      setError(error.response.data);
-    }
-    setLoading(false);
-  }, [ pokemonID ]);
 
-  useEffect(() => getPokemonFromApi(), [ getPokemonFromApi ]);
+    getPokemon(pokemonID)
+      .then((response) => {
+        setPokemon(response.data);
+      })
+      .catch((error) => {
+        setError(error.response.data);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }
+
+  useEffect(() => getPokemonFromApi(), []); /*eslint-disable-line max-len, react-hooks/exhaustive-deps*/
 
   return {
     pokemon,
