@@ -13,11 +13,12 @@ export default function PokeCard(props) {
   return (
     <Card>
       <Info>
-        <p>{props.pokemon.name}</p>
         <img
           src={pokemon.sprites?.other["official-artwork"].front_default}
           alt={props.pokemon.name}
         />
+        <p>{props.pokemon.name}</p>
+
       </Info>
       <Buttons>
         <button onClick={togglePokedex}>
