@@ -20,7 +20,7 @@ export default function Error() {
         width="500vh"
         height="480"
         frameBorder="0"
-        class="giphy-embed"
+        className="giphy-embed"
         allowFullScreen
 
       />
