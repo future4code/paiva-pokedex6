@@ -8,7 +8,9 @@ export default function usePokedex(pokemonName) {
     = useState(pokemonList.find(({ name }) => pokemonName === name));
   const [ inPokedex, setInPokedex ] = useState(pokedex.includes(pokemon));
 
-  function togglePokedex() {
+  function togglePokedex(event) {
+    event.stopPropagation();
+
     let newPokedex;
 
     if (inPokedex)

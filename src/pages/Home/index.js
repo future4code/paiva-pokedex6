@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <Header>
         <button onClick={() => gotToPokedex(history)}>Pokedex</button>
-        <p>Lista De Pokemons</p>
+        <h1>Pokémons</h1>
       </Header>
       <Main>
         <PokemonList/>
