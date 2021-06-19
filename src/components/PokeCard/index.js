@@ -11,7 +11,7 @@ export default function PokeCard(props) {
   const { inPokedex, togglePokedex } = usePokedex(props.pokemon.name);
 
   return (
-    <Card>
+    <Card onClick={() => goToDetails(history, props.pokemon.name)}>
       <img
         src={pokemon.sprites?.other["official-artwork"].front_default}
         alt={props.pokemon.name}

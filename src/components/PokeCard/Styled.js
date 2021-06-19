@@ -11,6 +11,7 @@ export const Card = styled.article`
   border-radius: 1em;
   padding: 1em;
   transition: transform 200ms;
+  cursor: pointer;
 
   p {
     font-family: 'Oswald', sans-serif;
