@@ -3,7 +3,7 @@ import { useHistory } from "react-router";
 import PokeCard from "../components/PokeCard";
 import { useGlobalStates } from "../global/GlobalState";
 import { goToHome } from "../routes/coodinator";
-import {Header, Main} from '../pages/Home/Styled'
+import { Header, Main } from "../pages/Home/Styled";
 
 export default function Pokedex() {
   const history = useHistory();
@@ -12,8 +12,8 @@ export default function Pokedex() {
   return (
     <>
       <Header>
-        <button onClick={() => goToHome(history)}>Lista De Pokemons</button>
-        <p>Pokedex</p>
+        <button onClick={() => goToHome(history)}>Pokémons</button>
+        <h1>Pokedex</h1>
       </Header>
       <Main>
         {pokedex.map((pokemon) => <PokeCard key={pokemon.name} pokemon={pokemon}/>)}

@@ -1,5 +1,12 @@
 import React, { useEffect } from "react";
-import useGetPokemon from "../hooks/useGetPokemon";
+import useGetPokemon from "../../hooks/useGetPokemon";
+import {
+  Images,
+  SectionStats,
+  ArticleTypes,
+  ArticleMovs,
+  SectionInfo
+} from "./Styled";
 
 export default function PokemonDetails(props) {
   const { pokemon, loading, error } = useGetPokemon(props.id);
@@ -20,29 +27,30 @@ export default function PokemonDetails(props) {
 
   return (
     <>
-      <section>
+      <Images>
         <img alt={`${name} frente`} src={sprites.front_default}/>
         <img alt={`${name} trás`} src={sprites.back_default}/>
-      </section>
-      <section>
+      </Images>
+      <SectionStats>
         <h2>Estatísticas</h2>
         {stats.map((stat) => (
-          <p key={stat.stat.name}>
-            {`${stat.stat.name}: ${stat.base_stat}`}
-          </p>
+          <article key={stat.id}>
+            <h3>{stat.stat.name}</h3>
+            <p>{stat.base_stat}</p>
+          </article>
         ))}
-      </section>
-      <section>
-        <article>
-          <h2>Tipos</h2>
+      </SectionStats>
+      <SectionInfo>
+        <h2>Tipos</h2>
+        <ArticleTypes>
           {types.map((type) => <p key={type.slot}>{type.type.name}</p>)}
-        </article>
+        </ArticleTypes>
 
-        <article>
-          <h2>Movimentos</h2>
+        <h2>Movimentos</h2>
+        <ArticleMovs>
           {moves.map(({ move }) => <p key={move.url}>{move.name}</p>)}
-        </article>
-      </section>
+        </ArticleMovs>
+      </SectionInfo>
     </>
   );
 }
