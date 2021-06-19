@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -69,6 +69,34 @@ const GlobalStyle = createGlobalStyle`
       width: 9em;
     }
   }
+`;
+
+export const Header1Button = styled.header`
+  h1 {
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: calc(9 * 1.2rem); // 
+  }
+
+  @media only screen and (max-width: 35em) {
+    height: fit-content;
+    flex-direction: column;
+    padding: 1em;
+    flex-direction: column-reverse;
+    h1 {
+      padding-right: 0;
+      margin-bottom: 0.5em
+    }
+  }
+`;
+
+export const MainGrid = styled.main`
+  font-size: 1rem;
+  display: grid;
+  padding: 2em;
+  grid-template-columns: repeat(auto-fill, minmax(min-content, 15em));
+  grid-gap: 2em;
+  justify-content: center;
 `;
 
 export default GlobalStyle;

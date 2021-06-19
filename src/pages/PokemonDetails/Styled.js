@@ -19,6 +19,19 @@ export const DetailsMain = styled.main`
 `;
 
 export const Header = styled.header`
-  &::after {
+
+  @media only screen and (max-width: 35em) {
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.5em;
+    justify-items: center;
+    padding: 1em;
+
+    h1 {
+      grid-row: 1 / span 1;
+      grid-column: 1 / span 2;
+      text-align: center;
+    }
   }
 `;

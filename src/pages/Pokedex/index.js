@@ -1,9 +1,9 @@
 import React from "react";
 import { useHistory } from "react-router";
-import PokeCard from "../components/PokeCard";
-import { useGlobalStates } from "../global/GlobalState";
-import { goToHome } from "../routes/coodinator";
-import { Header, Main } from "../pages/Home/Styled";
+import PokeCard from "../../components/PokeCard";
+import { useGlobalStates } from "../../global/GlobalState";
+import { goToHome } from "../../routes/coodinator";
+import { Header, Main } from "./Styled";
 
 export default function Pokedex() {
   const history = useHistory();
