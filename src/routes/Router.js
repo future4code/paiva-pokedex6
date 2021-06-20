@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Pokedex from "../pages/Pokedex";
 import PokemonDetails from "../pages/PokemonDetails";
-import Error from "../pages/Error";
+import NotFound from "../pages/NotFound";
 
 function Router() {
   return (
@@ -23,7 +23,7 @@ function Router() {
         </Route>
 
         <Route>
-          <Error/>
+          <NotFound/>
         </Route>
 
       </Switch>

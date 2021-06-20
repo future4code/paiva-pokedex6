@@ -19,7 +19,6 @@ export const DetailsMain = styled.main`
 `;
 
 export const Header = styled.header`
-
   @media only screen and (max-width: 35em) {
     height: fit-content;
     display: grid;
