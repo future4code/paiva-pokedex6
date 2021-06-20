@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import useGetPokemon from "../../hooks/useGetPokemon";
+import React from "react";
 import {
   Images,
   SectionStats,
@@ -9,21 +8,12 @@ import {
 } from "./Styled";
 
 export default function PokemonDetails(props) {
-  const { pokemon, loading, error } = useGetPokemon(props.id);
-
-  useEffect(() => props.setName(pokemon.name), [ pokemon, props ]);
-
-  if (loading)
-    return <p>Carregando O Pokémon</p>;
-  if (error)
-    if (error === "Not Found")
-      return <p>Pokémon Não Encontrado</p>;
-    else
-      return <p>Ocorreu Um Erro Ao Ver Os Detalhes</p>;
+  if (!props.pokemon)
+    return <p>Pokémon Não Encontrado</p>;
 
   const {
     name, sprites, stats, types, moves
-  } = pokemon;
+  } = props.pokemon;
 
   return (
     <>
@@ -34,7 +24,7 @@ export default function PokemonDetails(props) {
       <SectionStats>
         <h2>Estatísticas</h2>
         {stats.map((stat) => (
-          <article key={stat.id}>
+          <article key={stat.stat.name}>
             <h3>{stat.stat.name}</h3>
             <p>{stat.base_stat}</p>
           </article>

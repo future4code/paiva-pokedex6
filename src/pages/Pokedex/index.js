@@ -16,7 +16,9 @@ export default function Pokedex() {
         <h1>Pokedex</h1>
       </Header>
       <Main>
-        {pokedex.map((pokemon) => <PokeCard key={pokemon.name} pokemon={pokemon}/>)}
+        {pokedex
+          .sort((pokemonA, pokemonB) => pokemonA.id - pokemonB.id)
+          .map((pokemon) => <PokeCard key={pokemon.name} pokemon={pokemon}/>)}
       </Main>
     </>
   );

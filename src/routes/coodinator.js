@@ -6,8 +6,8 @@ export function gotToPokedex(history) {
   history.push("/pokedex");
 }
 
-export function goToDetails(history, name) {
-  history.push(`/details/${name}`);
+export function goToDetails(history, id) {
+  history.push(`/details/${id}`);
 }
 
 export function goBack(history) {
