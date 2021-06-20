@@ -4,14 +4,18 @@ import useGetPokemonList from "../hooks/useGetPokemonList";
 
 export const GlobalState = (props) => {
   const [ pokedex, setPokedex ] = useState([]);
-  const { pokemonList, loading, error } = useGetPokemonList();
+  const {
+    pokemonList, loading, error, pokemonErrors
+  } = useGetPokemonList();
 
   const states = {
     pokemonList,
     loading,
     error,
+    pokemonErrors,
     pokedex
   };
+
   const setters = { setPokedex };
 
   return (
@@ -37,9 +41,3 @@ export const useGlobalSetters = () => {
   const { setters } = useGlobal();
   return setters;
 };
-
-export const useGlobalRequests = () => {
-  const { requests } = useGlobal();
-  return requests;
-};
-

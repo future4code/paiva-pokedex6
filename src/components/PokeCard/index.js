@@ -1,19 +1,22 @@
 import React from "react";
 import { Card, Buttons } from "./Styled";
-import useGetPokemon from "../../hooks/useGetPokemon";
 import { goToDetails } from "../../routes/coodinator";
 import { useHistory } from "react-router-dom";
 import usePokedex from "../../hooks/usePokedex";
 
 export default function PokeCard(props) {
   const history = useHistory();
-  const { pokemon } = useGetPokemon(props.pokemon.name);
   const { inPokedex, togglePokedex } = usePokedex(props.pokemon.name);
 
+  function details(event) {
+    event.stopPropagation();
+    goToDetails(history, props.pokemon.id);
+  }
+
   return (
-    <Card onClick={() => goToDetails(history, props.pokemon.name)}>
+    <Card onClick={details}>
       <img
-        src={pokemon.sprites?.other["official-artwork"].front_default}
+        src={props.pokemon.sprites.other["official-artwork"].front_default}
         alt={props.pokemon.name}
       />
       <p>{props.pokemon.name}</p>
@@ -21,7 +24,7 @@ export default function PokeCard(props) {
         <button onClick={togglePokedex}>
           {inPokedex ? "Remover" : "Adicionar"}
         </button>
-        <button onClick={() => goToDetails(history, props.pokemon.name)}>
+        <button onClick={details}>
           Ver Detalhes
         </button>
       </Buttons>
